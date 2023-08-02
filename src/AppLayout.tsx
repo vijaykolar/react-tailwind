@@ -9,14 +9,16 @@ import { store } from "./store";
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 // import "./layout.css";
 import Header from "./components/header";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import "./global.css";
+
 const queryClient = new QueryClient();
+
 function AppLayout({ children }: any) {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
