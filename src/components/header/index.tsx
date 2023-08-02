@@ -1,87 +1,44 @@
 import React from "react";
-import { Link } from "gatsby";
-import {
-  HiOutlineBars2,
-  HiOutlineBell,
-  HiOutlineCog6Tooth,
-} from "react-icons/hi2";
-import "./header.scss";
-import { Dropdown } from "react-bootstrap";
 
-const Header = ({ siteTitle = "" }) => (
-  <header>
-    <div className="container-fluid px-0 ">
-      <nav className="navbar navbar-top py-2 navbar-expand border-dark border-bottom">
-        <div className="collapse navbar-collapse justify-content-between">
-          <div className="navbar-logo">
-            <HiOutlineBars2 className="d-md-none" size={24} />
-            <Link to="/" className="text-decoration-none text-primary">
-              Yt
-            </Link>
-          </div>
-          <div className="d-none d-md-block">search</div>
-          <ul className="d-flex flex-row align-center gap-3 ">
-            <li>
-              <Dropdown className="d-inline">
-                <Dropdown.Toggle
-                  className="bg-transparent border-0 text-dark px-0"
-                  id="dropdown-autoclose-true"
-                >
-                  <HiOutlineBell size={24} />
-                </Dropdown.Toggle>
+import { HiOutlineBars2, HiOutlineCog6Tooth } from "react-icons/hi2";
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </li>
-            <li>
-              <Dropdown className="d-inline" placement="right-start">
-                <Dropdown.Toggle
-                  className="bg-transparent border-0 text-dark px-0"
-                  id="dropdown-autoclose-true"
-                >
-                  <HiOutlineCog6Tooth size={24} />
-                </Dropdown.Toggle>
+import Logo from "./Logo";
+import Search from "./Search";
+import Notification from "./Notification";
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </li>
-            <li>
-              <Dropdown className="d-inline">
-                <Dropdown.Toggle
-                  className="bg-transparent border-0 text-dark px-0"
-                  id="dropdown-autoclose-true"
-                >
-                  <HiOutlineCog6Tooth size={24} />
-                </Dropdown.Toggle>
+const Header = ({ siteTitle = "" }): React.JSX.Element => (
+  <header className="border-b border-gray-300 bg-white">
+    <div className="flex justify-between items-center p-2 md:px-4">
+      <div className="flex items-center gap-2">
+        <button onClick={() => alert(1)}>
+          <HiOutlineBars2 className="md:hidden text-gray-500" size={24} />
+        </button>
+        <Logo title={siteTitle} />
+      </div>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                  <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <nav></nav>
-      <Link
-        to="/"
-        style={{
-          fontSize: `var(--font-sm)`,
-          textDecoration: `none`,
-        }}
-      >
-        {siteTitle}
-      </Link>
+      <div className="hidden md:block">
+        <Search />
+      </div>
+      <ul className="flex items-center gap-3 md:gap-x-6">
+        <li>
+          <Notification />
+        </li>
+        <li>
+          <button>
+            <HiOutlineCog6Tooth className="text-gray-500" size={24} />
+          </button>
+        </li>
+        <li>
+          <button>
+            <div className="h-10 w-10 rounded-full overflow-hidden">
+              <img
+                src="https://prium.github.io/phoenix/v1.9.0/assets/img/team/40x40/57.webp"
+                alt=""
+              />
+            </div>
+          </button>
+        </li>
+      </ul>
     </div>
   </header>
 );

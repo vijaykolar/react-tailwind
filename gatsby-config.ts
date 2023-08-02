@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `dashboard`,
+    title: `Yt`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-omni-font-loader`,
