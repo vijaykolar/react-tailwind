@@ -25,7 +25,7 @@ export const notificationMenu: NotificationMenuTypes[] = [
     id: 3,
     name: "John Doe",
     icon: "📅",
-    description: "Created an event",
+    description: "Share an invitation",
     date: "23h",
     image: "",
     status: "away",

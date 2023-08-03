@@ -8,8 +8,11 @@ import NotificationItem from "./NotificationItem";
 function Notification() {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button>
+      <Menu.Button className="relative">
         <HiOutlineBell className="text-gray-500" size={24} />
+        <span className="absolute text-[10px] h-4 w-4 rounded-full -right-1 -top-1 bg-red-500 text-white">
+          3
+        </span>
       </Menu.Button>
       <Transition
         as={Fragment}
