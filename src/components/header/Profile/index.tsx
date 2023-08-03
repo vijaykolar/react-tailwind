@@ -3,11 +3,10 @@ import { Link } from "gatsby";
 import { Popover, Transition } from "@headlessui/react";
 import {
   HiOutlineArrowRightOnRectangle,
-  HiOutlineUser,
   HiOutlineUserPlus,
 } from "react-icons/hi2";
 
-import { profile } from "./data";
+import { profile, ProfileTypes } from "./data";
 
 function Profile(): React.JSX.Element {
   return (
@@ -54,19 +53,22 @@ function Profile(): React.JSX.Element {
             </div>
             <div className="py-3 mb-3 border-b border-t border-gray-300 h-40 overflow-y-auto">
               <ul>
-                {profile.map((el) => (
-                  <li key={el.id}>
-                    <Link
-                      to="/"
-                      className="flex px-4 gap-x-1 text-xs py-2 hover:bg-gray-100 transition-all duration-300 capitalize items-center text-gray-500"
-                    >
-                      <span>
-                        <HiOutlineUser size={20} />
-                      </span>
-                      <span>{el.title}</span>
-                    </Link>
-                  </li>
-                ))}
+                {profile.map((el: ProfileTypes) => {
+                  const { Icon }: any = el;
+                  return (
+                    <li key={el.id}>
+                      <Link
+                        to="/"
+                        className="flex px-4 gap-x-1.5 text-xs py-2 hover:bg-gray-100 transition-all duration-300 capitalize items-center text-gray-500"
+                      >
+                        <span>
+                          <Icon size={20} />
+                        </span>
+                        <span>{el.title}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div className="pb-3 border-b border-gray-300">
