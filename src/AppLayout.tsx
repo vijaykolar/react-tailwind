@@ -15,7 +15,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import Header from "./components/header";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import "./global.css";
 
 const queryClient = new QueryClient();
 
