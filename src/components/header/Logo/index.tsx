@@ -6,7 +6,11 @@ type LogTypes = {
 };
 
 function Logo({ title }: LogTypes): React.JSX.Element {
-  return <Link to="/">{title}</Link>;
+  return (
+    <Link className="text-gray-800 text-xl  md:text-2xl font-semibold" to="/">
+      {title}
+    </Link>
+  );
 }
 
 export default Logo;
