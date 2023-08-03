@@ -1,10 +1,11 @@
 import React from "react";
 
-import { HiOutlineBars2, HiOutlineCog6Tooth } from "react-icons/hi2";
+import { HiOutlineBars2 } from "react-icons/hi2";
 
 import Logo from "./Logo";
 import Search from "./Search";
 import Notification from "./Notification";
+import Settings from "./Settings";
 
 const Header = ({ siteTitle = "" }): React.JSX.Element => (
   <header className="border-b border-gray-300 bg-white">
@@ -24,9 +25,7 @@ const Header = ({ siteTitle = "" }): React.JSX.Element => (
           <Notification />
         </li>
         <li>
-          <button>
-            <HiOutlineCog6Tooth className="text-gray-500" size={24} />
-          </button>
+          <Settings />
         </li>
         <li>
           <button>

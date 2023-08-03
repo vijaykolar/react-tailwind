@@ -5,7 +5,7 @@ import { notificationMenu } from "./data";
 import { NotificationMenuTypes } from "./types";
 import NotificationItem from "./NotificationItem";
 
-function Notification() {
+function Notification(): React.JSX.Element {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button className="relative">
