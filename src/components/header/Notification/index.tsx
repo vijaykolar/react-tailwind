@@ -36,8 +36,8 @@ function Notification(): React.JSX.Element {
               </div>
               <div>
                 <ul>
-                  {notificationMenu.map((no: NotificationMenuTypes) => (
-                    <NotificationItem notification={no} key={no.id} />
+                  {notificationMenu.map((element: NotificationMenuTypes) => (
+                    <NotificationItem notification={element} key={element.id} />
                   ))}
                 </ul>
               </div>
