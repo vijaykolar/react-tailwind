@@ -13,7 +13,7 @@ function Settings(): React.JSX.Element {
   let { styles, attributes } = usePopper(referenceElement, popperElement);
   return (
     <Popover className="relative">
-      <Popover.Button>
+      <Popover.Button aria-label="settings">
         <HiOutlineCog6Tooth className="text-gray-500" size={24} />
       </Popover.Button>
       <Transition

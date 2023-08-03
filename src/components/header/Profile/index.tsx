@@ -11,7 +11,7 @@ import { profile, ProfileTypes } from "./data";
 function Profile(): React.JSX.Element {
   return (
     <Popover className="relative">
-      <Popover.Button>
+      <Popover.Button aria-label="profile">
         <div className="h-10 w-10 rounded-full overflow-hidden">
           <img
             src="https://prium.github.io/phoenix/v1.9.0/assets/img/team/40x40/57.webp"

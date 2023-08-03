@@ -12,7 +12,7 @@ const Header = ({ siteTitle = "" }): React.JSX.Element => (
   <header className="border-b border-gray-300 bg-white">
     <div className="flex justify-between items-center p-2 md:px-4">
       <div className="flex items-center gap-2">
-        <button onClick={() => alert(1)}>
+        <button aria-label="menu" onClick={() => alert(1)}>
           <HiOutlineBars2 className="md:hidden text-gray-500" size={24} />
         </button>
         <Logo title={siteTitle} />
