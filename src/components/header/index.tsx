@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import Search from "./Search";
 import Notification from "./Notification";
 import Settings from "./Settings";
+import Profile from "./Profile";
 
 const Header = ({ siteTitle = "" }): React.JSX.Element => (
   <header className="border-b border-gray-300 bg-white">
@@ -28,14 +29,7 @@ const Header = ({ siteTitle = "" }): React.JSX.Element => (
           <Settings />
         </li>
         <li>
-          <button>
-            <div className="h-10 w-10 rounded-full overflow-hidden">
-              <img
-                src="https://prium.github.io/phoenix/v1.9.0/assets/img/team/40x40/57.webp"
-                alt=""
-              />
-            </div>
-          </button>
+          <Profile />
         </li>
       </ul>
     </div>
