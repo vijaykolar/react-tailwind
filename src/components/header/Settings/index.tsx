@@ -28,7 +28,7 @@ function Settings(): React.JSX.Element {
         <Popover.Panel className="absolute z-10 w-72 bg-white  right-0 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <ul className="grid w-full grid-cols-3 p-4 gap-1 overflow-y-auto max-h-72">
             {settingsLinks.map((setting: SettingsLinksTypes) => (
-              <SettingsItem setting={setting} />
+              <SettingsItem key={setting.id} setting={setting} />
             ))}
           </ul>
         </Popover.Panel>
