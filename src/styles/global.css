@@ -45,7 +45,7 @@ body {
 
 @layer base{
   body {
-    @apply dark:bg-gray-700 bg-white
+    @apply dark:bg-gray-800 bg-white
   }
 
 
