@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 
 // import "./layout.css";
-import Header from "./components/header";
+
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import SideBar from "@/components/header";
+// import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 
@@ -16,12 +17,10 @@ function AppLayout({ children }: any) {
       <QueryClientProvider client={queryClient}>
         {/*<ReactQueryDevtools />*/}
 
-        <div>
-          <Header siteTitle="Dashbaord" />
-          <main>{children}</main>
+        <SideBar />
+        <main>{children}</main>
 
-          {/* <footer>Footer</footer> */}
-        </div>
+        {/* <footer>Footer</footer> */}
       </QueryClientProvider>
     </Provider>
   );
