@@ -3,7 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { HiOutlineBell } from "react-icons/hi2";
 import { notificationMenu } from "./data";
 import { NotificationMenuTypes } from "./types";
-import NotificationItem from "./NotificationItem";
+import NotificationItem from "./notification-item";
 
 function Notification(): React.JSX.Element {
   return (
