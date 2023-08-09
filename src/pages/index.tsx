@@ -2,6 +2,51 @@ import Head from "next/head";
 import AppLayout from "@/AppLayout";
 import Stats from "@/ui/stats";
 
+import ReactECharts from "echarts-for-react";
+
+const option = {
+  tooltip: {
+    trigger: "axis",
+  },
+  toolbox: {
+    show: false,
+  },
+  grid: {
+    left: "3%",
+    right: "4%",
+    containLabel: true,
+  },
+  xAxis: [
+    {
+      type: "category",
+      boundaryGap: false,
+      data: ["a", "b", "c", "d", "e", "f", "g"],
+    },
+  ],
+  yAxis: [
+    {
+      type: "value",
+    },
+  ],
+
+  series: [
+    {
+      name: "a",
+      type: "line",
+      stack: "dd",
+      areaStyle: { normal: {} },
+      data: [120, 132, 101, 134, 90, 230, 210],
+    },
+    {
+      name: "b",
+      type: "line",
+      stack: "dd",
+      areaStyle: { normal: {} },
+      data: [220, 182, 191, 234, 290, 330, 310],
+    },
+  ],
+};
+
 function Homepage() {
   return (
     <AppLayout>
@@ -43,6 +88,9 @@ function Homepage() {
                   <option value="1">Dec 1-31, 2021</option>
                 </select>
               </div>
+            </div>
+            <div>
+              <ReactECharts option={option} style={{ height: 400 }} />
             </div>
           </div>
         </main>
