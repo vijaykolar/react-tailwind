@@ -16,8 +16,8 @@ function Homepage() {
   return (
     <AppLayout>
       <div className="lg:pl-72">
-        <main className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">
+        <main className="p-4 sm:p-6 lg:p-8">
+          <div>
             {/* Your content */}
             Homepage
           </div>
