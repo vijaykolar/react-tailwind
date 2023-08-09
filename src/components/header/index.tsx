@@ -1,22 +1,13 @@
-import React, { Fragment, useState } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/20/solid";
-import SideMenu from "./side-menu";
-import { teams } from "@/components/header/side-menu/data";
-
-import SideMenuBar from "@/components/header/side-menu/side-menu-bar";
-import Link from "next/link";
-import Search from "@/components/header/search";
+import React, { useState } from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(" ");
-}
+import SideMenu from "./side-menu";
+import SideMenuBar from "@/components/header/side-menu/side-menu-bar";
+import Search from "@/components/header/search";
+import Notification from "@/components/header/notification";
+import Profile from "@/components/header/profile";
 
 function SideBar() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -27,10 +18,10 @@ function SideBar() {
       <>
         {/* Mobile menu drawer */}
         <SideMenu sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <header className="sticky  top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <header className="sticky  top-0 z-40 flex h-16 shrink-0 items-center gap-x-3 border-b border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           <button
             type="button"
-            className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+            className="-m-2.5 p-2.5 text-gray-700 dark:text-gray-400 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
@@ -38,7 +29,7 @@ function SideBar() {
           </button>
 
           {/* Separator */}
-          <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
+          {/*<div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />*/}
           <div className="lg:pl-72 flex-1 ">
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <Search />
@@ -50,7 +41,7 @@ function SideBar() {
                     theme == "dark" ? setTheme("light") : setTheme("dark")
                   }
                   type="button"
-                  className="-m-2.5 p-1 text-gray-400 hover:text-gray-500"
+                  className="-m-2.5 p-2 md:p-1 text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">View notifications</span>
                   {currentTheme !== "dark" ? (
@@ -64,69 +55,75 @@ function SideBar() {
                   aria-hidden="true"
                 />
 
-                <button
-                  type="button"
-                  className="-m-2.5 p-1 text-gray-400 hover:text-gray-500"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
+                {/*<button*/}
+                {/*  type="button"*/}
+                {/*  className="-m-2.5 p-2 md:p-1 text-gray-400 hover:text-gray-500"*/}
+                {/*>*/}
+                {/*  <span className="sr-only">View notifications</span>*/}
+                {/*  <BellIcon className="h-6 w-6" aria-hidden="true" />*/}
+                {/*</button>*/}
+                <Notification />
                 <div
                   className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200 dark:lg:bg-gray-600"
                   aria-hidden="true"
                 />
+                <Profile />
 
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative">
-                  <Menu.Button className="-m-1.5 flex items-center p-1.5">
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span className="hidden lg:flex lg:items-center">
-                      <span
-                        className="ml-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-500"
-                        aria-hidden="true"
-                      >
-                        Vijay Kolar
-                      </span>
-                      <ChevronDownIcon
-                        className="ml-2 h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </span>
-                  </Menu.Button>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white dark:bg-gray-800 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-500/70  focus:outline-none">
-                      {teams.map((item) => (
-                        <Menu.Item key={item.name}>
-                          {({ active }) => (
-                            <Link
-                              href={item.href}
-                              className={classNames(
-                                active ? "bg-gray-50" : "",
-                                "block px-3 py-1 text-sm leading-6 text-gray-900 dark:text-gray-500 dark:hover:bg-gray-700 dark:visited:bg-gray-600",
-                              )}
-                            >
-                              {item.name}
-                            </Link>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
+                {/*<div*/}
+                {/*  className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200 dark:lg:bg-gray-600"*/}
+                {/*  aria-hidden="true"*/}
+                {/*/>*/}
+
+                {/* profile dropdown */}
+                {/*<Menu as="div" className="relative">*/}
+                {/*  <Menu.Button className="-m-1.5 flex items-center p-1.5">*/}
+                {/*    <span className="sr-only">Open user menu</span>*/}
+                {/*    <img*/}
+                {/*      className="h-8 w-8 rounded-full bg-gray-50"*/}
+                {/*      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"*/}
+                {/*      alt=""*/}
+                {/*    />*/}
+                {/*    <span className="hidden lg:flex lg:items-center">*/}
+                {/*      <span*/}
+                {/*        className="ml-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-500"*/}
+                {/*        aria-hidden="true"*/}
+                {/*      >*/}
+                {/*        Vijay Kolar*/}
+                {/*      </span>*/}
+                {/*      <ChevronDownIcon*/}
+                {/*        className="ml-2 h-5 w-5 text-gray-400"*/}
+                {/*        aria-hidden="true"*/}
+                {/*      />*/}
+                {/*    </span>*/}
+                {/*  </Menu.Button>*/}
+                {/*  <Transition*/}
+                {/*    as={Fragment}*/}
+                {/*    enter="transition ease-out duration-100"*/}
+                {/*    enterFrom="transform opacity-0 scale-95"*/}
+                {/*    enterTo="transform opacity-100 scale-100"*/}
+                {/*    leave="transition ease-in duration-75"*/}
+                {/*    leaveFrom="transform opacity-100 scale-100"*/}
+                {/*    leaveTo="transform opacity-0 scale-95"*/}
+                {/*  >*/}
+                {/*    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white dark:bg-gray-800 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-500/70  focus:outline-none">*/}
+                {/*      {teams.map((item) => (*/}
+                {/*        <Menu.Item key={item.name}>*/}
+                {/*          {({ active }) => (*/}
+                {/*            <Link*/}
+                {/*              href={item.href}*/}
+                {/*              className={classNames(*/}
+                {/*                active ? "bg-gray-50" : "",*/}
+                {/*                "block px-3 py-1 text-sm leading-6 text-gray-900 dark:text-gray-500 dark:hover:bg-gray-700 dark:visited:bg-gray-600",*/}
+                {/*              )}*/}
+                {/*            >*/}
+                {/*              {item.name}*/}
+                {/*            </Link>*/}
+                {/*          )}*/}
+                {/*        </Menu.Item>*/}
+                {/*      ))}*/}
+                {/*    </Menu.Items>*/}
+                {/*  </Transition>*/}
+                {/*</Menu>*/}
               </div>
             </div>
           </div>
@@ -135,8 +132,6 @@ function SideBar() {
         <aside className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           <SideMenuBar classes="border-r border-gray-200 dark:border-gray-600" />
         </aside>
-
-        {/* Main content */}
       </>
     </>
   );

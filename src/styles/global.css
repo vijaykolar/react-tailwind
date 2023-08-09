@@ -1,6 +1,6 @@
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-/*@import './base.css';*/
 @import 'tailwindcss/utilities';
 /*@tailwind base;*/
 /*@tailwind components;*/
@@ -45,8 +45,6 @@ body {
 
 @layer base{
   body {
-    @apply dark:bg-gray-800 bg-white
+    @apply dark:bg-gray-800 bg-gray-50;
   }
-
-
 }

@@ -28,7 +28,7 @@ function Profile(): React.JSX.Element {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Popover.Panel className="absolute  z-10 w-72  right-0 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Popover.Panel className="absolute bg-white dark:bg-gray-700 z-10 w-72  right-0 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div>
             <div className="text-center p-3 mt-3">
               <div className="h-10 w-10 mx-auto rounded-full overflow-hidden">
@@ -93,17 +93,26 @@ function Profile(): React.JSX.Element {
               </div>
               <ul className="flex items-center justify-center mt-2 gap-x-2">
                 <li className="relative after:absolute after:rounded-full after:h-1 after:w-1 after:content-['']  after:bg-gray-500 after:left-0 after:top-1/2 after:left-0 px-2 ">
-                  <Link className="text-[10px] text-gray-500 capitalize" href="/">
+                  <Link
+                    className="text-[10px] text-gray-500 capitalize"
+                    href="/"
+                  >
                     privacy policy
                   </Link>
                 </li>
                 <li className="relative after:absolute after:rounded-full after:h-1 after:w-1 after:content-['']  after:bg-gray-500 after:left-0 after:top-1/2 after:left-0 px-2 ">
-                  <Link className="text-[10px] text-gray-500 capitalize" href="/">
+                  <Link
+                    className="text-[10px] text-gray-500 capitalize"
+                    href="/"
+                  >
                     terms
                   </Link>
                 </li>
                 <li className="relative after:absolute after:rounded-full after:h-1 after:w-1 after:content-['']  after:bg-gray-500 after:left-0 after:top-1/2 after:left-0 px-2 ">
-                  <Link className="text-[10px] text-gray-500 capitalize" href="/">
+                  <Link
+                    className="text-[10px] text-gray-500 capitalize"
+                    href="/"
+                  >
                     cookies
                   </Link>
                 </li>
