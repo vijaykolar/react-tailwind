@@ -20,7 +20,7 @@ const option = {
     {
       type: "category",
       boundaryGap: false,
-      data: ["a", "b", "c", "d", "e", "f", "g"],
+      data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
     },
   ],
   yAxis: [
@@ -31,18 +31,16 @@ const option = {
 
   series: [
     {
-      name: "a",
+      name: "2021",
       type: "line",
-      stack: "dd",
-      areaStyle: { normal: {} },
+      smooth: true,
       data: [120, 132, 101, 134, 90, 230, 210],
     },
     {
-      name: "b",
+      name: "2022",
       type: "line",
-      stack: "dd",
-      areaStyle: { normal: {} },
-      data: [220, 182, 191, 234, 290, 330, 310],
+      smooth: true,
+      data: [220, 32, 191, 234, 290, 330, 310],
     },
   ],
 };
